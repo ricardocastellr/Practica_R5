@@ -1,5 +1,5 @@
 import { validateBlankField, validateEmail, validatePassword } from './scripts/validations';
-import { StyleSheet, Text, View, Pressable, TextInput, Alert, Image } from 'react-native';
+import { StyleSheet, Text, View, Pressable, TextInput, Alert, ImageBackground } from 'react-native';
 import { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 
@@ -52,57 +52,63 @@ export default class LoginView extends Component {
   }
 
   render() {
-
     return (
-      <View style={styles.container}>
+      <ImageBackground
+        source={require('./assets/music.jpg')}
+        style={styles.backgroundImage}
+      >
+        <View style={styles.container}>
 
-        <Image source={require('./assets/luffy.png')} style={styles.Img} />
 
-        <TextInput
-          value={this.state.email}
-          onChangeText={(text) => this.onEmailChange(text)}
-          inputMode='email'
-          placeholder="Escribe tu correo"
-          placeholderTextColor="#000"
-          style={styles.TextInput}
-        />
+          <TextInput
+            value={this.state.email}
+            onChangeText={(text) => this.onEmailChange(text)}
+            inputMode='email'
+            placeholder="Escribe tu correo"
+            placeholderTextColor="#000"
+            style={styles.TextInput}
+          />
 
-        <TextInput
-          value={this.state.password}
-          onChangeText={(text) => this.onPasswordChange(text)}
-          secureTextEntry={true}
-          placeholder="Escribe tu contraseña"
-          placeholderTextColor="#000"
-          style={styles.TextInput}
-        />
+          <TextInput
+            value={this.state.password}
+            onChangeText={(text) => this.onPasswordChange(text)}
+            secureTextEntry={true}
+            placeholder="Escribe tu contraseña"
+            placeholderTextColor="#000"
+            style={styles.TextInput}
+          />
 
-        <Pressable
-          onPress={() => this.onPressValidate(this.state.email, this.state.password)}
-          accessibilityLabel="Iniciar Sesión"
-          style={styles.buttonLogin}
-        >
-          <Text style={styles.textButton}>Iniciar sesión</Text>
-        </Pressable>
-        <Pressable
-          onPress={() => Actions.register()}
-          accessibilityLabel="Registrarse"
-          style={styles.buttonRegister}
-        >
-          <Text style={styles.textButton}>Registarse</Text>
-        </Pressable>
+          <Pressable
+            onPress={() => this.onPressValidate(this.state.email, this.state.password)}
+            accessibilityLabel="Iniciar Sesión"
+            style={styles.buttonLogin}
+          >
+            <Text style={styles.textButton}>Iniciar sesión</Text>
+          </Pressable>
 
-      </View>
+          <Pressable
+            onPress={() => Actions.register()}
+            accessibilityLabel="Registrarse"
+            style={styles.buttonRegister}
+          >
+            <Text style={styles.textButton}>Registarse</Text>
+          </Pressable>
 
+        </View>
+      </ImageBackground>
     );
   }
 }
 
-
-
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -112,14 +118,14 @@ const styles = StyleSheet.create({
     color: "white",
   },
   buttonLogin: {
-    backgroundColor: '#7676C2',
+    backgroundColor: '#1DB954',
     borderColor: 'red',
     padding: 15,
     borderRadius: 100,
     margin: 30,
   },
   buttonRegister: {
-    backgroundColor: '#7676C2',
+    backgroundColor: '#9B59B6',
     borderColor: 'red',
     padding: 15,
     borderRadius: 100,
@@ -127,16 +133,13 @@ const styles = StyleSheet.create({
   TextInput: {
     textAlign: "center",
     width: 200,
+    height: 40,
     margin: 10,
-    borderColor: 'black',
+    borderColor: 'transparent',
     borderWidth: 1,
     borderRadius: 30,
     paddingLeft: 5,
     paddingRight: 5,
-  },
-  Img: {
-    width: 200,
-    height: 200,
-    margin: 30,
+    backgroundColor: 'white'
   },
 });

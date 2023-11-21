@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
 
 const scenes = Actions.create(
   <Scene key="root">
-     <Scene key="login" component={LoginView} hideNavBar />
-     <Scene key="register" title={"Registro"} component={RegisterView} back />
-     <Scene key="home"title={"Inicio"} component={HomeView} back />
-     <Scene key="artistDetail" title={"Artista"}  component={ArtistDetailView} back/> 
+     <Scene key="login" component={LoginView} titleStyle={styles.navigationBarTitleStyle} hideNavBar />
+     <Scene key="register" title={"Registro"} titleStyle={styles.navigationBarTitleStyle} component={RegisterView} back />
+     <Scene key="home"title={"Inicio"} component={HomeView} titleStyle={styles.navigationBarTitleStyle} back />
+     <Scene key="artistDetail" title={"Artista"} component={ArtistDetailView} titleStyle={styles.navigationBarTitleStyle} back/> 
   </Scene>
 )
 

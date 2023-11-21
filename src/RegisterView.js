@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Pressable, TextInput, Alert } from 'react-native';
+import { StyleSheet, Text, View, Pressable, TextInput, Alert, ImageBackground } from 'react-native';
 import { Component } from 'react';
 import { Actions } from 'react-native-router-flux';
 import { validateEmail, validatePassword, validateBlankField } from './scripts/validations';
@@ -74,52 +74,60 @@ export default class LoginView extends Component {
   render() {
 
     return (
-      <View style={styles.container}>
+
+      <ImageBackground
+        source={require('./assets/music.jpg')}
+        style={styles.backgroundImage}
+      >
+          <View style={styles.container}>
 
 
-        <TextInput
-          value={this.state.email}
-          onChangeText={(text) => this.onEmailChange(text)}
-          inputMode='email'
-          placeholder="Escribe tu correo"
-          placeholderTextColor="#000"
-          style={styles.TextInput}
-        />
+          <TextInput
+            value={this.state.email}
+            onChangeText={(text) => this.onEmailChange(text)}
+            inputMode='email'
+            placeholder="Escribe tu correo"
+            placeholderTextColor="#000"
+            style={styles.TextInput}
+          />
 
-        <TextInput
-          value={this.state.name}
-          onChangeText={(text) => this.onNameChange(text)}
-          placeholder="Escribe tu nombre"
-          placeholderTextColor="#000"
-          style={styles.TextInput}
-        />
+          <TextInput
+            value={this.state.name}
+            onChangeText={(text) => this.onNameChange(text)}
+            placeholder="Escribe tu nombre"
+            placeholderTextColor="#000"
+            style={styles.TextInput}
+          />
 
-        <TextInput
-          value={this.state.password}
-          onChangeText={(text) => this.onPasswordChange(text)}
-          secureTextEntry={true}
-          placeholder="Escribe tu contraseña"
-          placeholderTextColor="#000"
-          style={styles.TextInput}
-        />
+          <TextInput
+            value={this.state.password}
+            onChangeText={(text) => this.onPasswordChange(text)}
+            secureTextEntry={true}
+            placeholder="Escribe tu contraseña"
+            placeholderTextColor="#000"
+            style={styles.TextInput}
+          />
 
-        <TextInput
-          value={this.state.passwordConfirmation}
-          onChangeText={(text) => this.onPasswordConfirmationChange(text)}
-          secureTextEntry={true}
-          placeholder="Repite tu contraseña"
-          placeholderTextColor="#000"
-          style={styles.TextInput}
-        />
+          <TextInput
+            value={this.state.passwordConfirmation}
+            onChangeText={(text) => this.onPasswordConfirmationChange(text)}
+            secureTextEntry={true}
+            placeholder="Repite tu contraseña"
+            placeholderTextColor="#000"
+            style={styles.TextInput}
+          />
 
-        <Pressable
-          onPress={() => this.onPressValidate(this.state.email, this.state.password, this.state.passwordConfirmation, this.state.name)}
-          accessibilityLabel="Registrarse"
-          style={styles.button}
-        >
-          <Text style={styles.textButton}>Registrarse</Text>
-        </Pressable>
-      </View>
+          <Pressable
+            onPress={() => this.onPressValidate(this.state.email, this.state.password, this.state.passwordConfirmation, this.state.name)}
+            accessibilityLabel="Registrarse"
+            style={styles.button}
+          >
+            <Text style={styles.textButton}>Registrarse</Text>
+          </Pressable>
+        </View>
+      </ImageBackground>
+      
+      
     );
   }
 }
@@ -127,9 +135,14 @@ export default class LoginView extends Component {
 
 
 const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -139,20 +152,22 @@ const styles = StyleSheet.create({
     color: "white",
   },
   button: {
-    backgroundColor: '#7676C2',
+    backgroundColor: '#9B59B6',
+    borderColor: 'red',
     padding: 15,
     borderRadius: 100,
-    margin: 30,
   },
   TextInput: {
     textAlign: "center",
     width: 200,
+    height: 40,
     margin: 10,
-    borderColor: 'black',
+    borderColor: 'transparent',
     borderWidth: 1,
     borderRadius: 30,
     paddingLeft: 5,
     paddingRight: 5,
+    backgroundColor: 'white'
   },
   Img: {
     width: 200,

@@ -30,6 +30,6 @@ export default class HomeView extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'lightgray',
+        backgroundColor: '#f0f8ff',
     }    
 })

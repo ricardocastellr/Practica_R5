@@ -26,16 +26,19 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection: 'row',
         shadowColor: 'black',
-        shadowOpacity: 1,
+        shadowOpacity: 10,
         shadowoffset: {
             height: 1,
             width: -2
         },
-        elevation: 2
+        elevation: 2,
+        borderRadius: 25,
     },
     image: {
         width: 150,
-        height: 150
+        height: 150,
+        borderTopLeftRadius: 25,
+        borderBottomLeftRadius: 25
     },
     info: {
         flex: 1,
@@ -44,8 +47,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     name: {
-        fontSize: 20,
+        fontSize: 22,
         marginTop: 10,
-        color: '#333'
+        color: '#333',
+        fontWeight: 'bold'
     },
 });
