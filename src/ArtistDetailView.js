@@ -25,10 +25,9 @@ export default class ArtistDetailView extends Component {
         <Text style={styles.text}>{this.state.artistId}</Text>
         {
           this.state.artistStreamable === '0' ? 
-            <Text style={[styles.stream, {backgroundColor: '#B91D1D'}]}>STREAMBALE</Text> :
-            <Text style={[styles.stream, {backgroundColor: '#1DB954'}]}>STREAMBALE</Text>
+            <Text style={[styles.stream, {backgroundColor: '#B91D1D'}]}>STREMEABLE: NO</Text> :
+            <Text style={[styles.stream, {backgroundColor: '#1DB954'}]}>STREMEABLE: YES</Text>
         }
-        <Text style={styles.stream}>STREAMBALE</Text>
       </View>
     );
   }
